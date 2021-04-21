@@ -20,10 +20,10 @@ import array as arr
 def selection_Sort(mL):
     #check the length of the Array
     for i in range(len(mL)):
-        #find the smallest value in the element inside the unsorted array
+        #find the smallest element inside the unsorted array
         minElement = i
         for j in range(i+1, len(mL)):
-            # substitute the value of the minIndex if element[0] is greater than element[1]. 
+            # substitute the index of the minIndex if element[0] is greater than element[1]. 
             if mL[minElement] > mL[j]:
                 minElement = j
         # swap the minimum element with the first index/element
@@ -32,8 +32,18 @@ def selection_Sort(mL):
     return mL
 
 
-def bubSort(myList):
-    return myList
+def bubSort(mL):
+    #go through all the elements in the Array
+    for i in range(len(mL)):
+        # eg. j = 0 mL = 5 then start count is 0 and end is 5-0-1 for 1st pass.
+        for j in range(0, len(mL)-i-1):
+            # check thhe adjacent element if the element[j] is greater than element [j+1]
+            # swap the adjacent element if true
+            # else traverse the next adjacent array which is from 0 to len(mL)-i-1
+            if mL[j] > mL[j+1]:
+                mL[j], mL[j+1] = mL[j+1], mL[j]
+        print(mL)        
+    return mL
 
 def inSort(myList):
     return myList
@@ -85,13 +95,13 @@ if chooseSort == "1":
     print(f"result is: {myList}")
 elif chooseSort == "2":
     bubSort(myList)
-    print(myList)
+    print(f"result is: {myList}")
 elif chooseSort == "3":
     inSort(myList)
-    print(myList)
+    print(f"result is: {myList}")
 elif chooseSort == "4":
     merSort(myList)
-    print(myList)
+    print(f"result is: {myList}")
 else:
     print("enter numbers from 1 to 5 only thanks.")
     
